@@ -1,12 +1,5 @@
-let abiadura = 0
-DFRobotMaqueenPlus.I2CInit()
-basic.forever(function () {
-    if (input.buttonIsPressed(Button.A)) {
-        abiadura = 40
-    }
-    if (input.buttonIsPressed(Button.B)) {
-        abiadura = 70
-    }
+input.onButtonPressed(Button.A, function () {
+    let abiadura = 0
     DFRobotMaqueenPlus.mototRun(Motors.ALL, Dir.CW, abiadura)
     basic.pause(2000)
     DFRobotMaqueenPlus.mototStop(Motors.ALL)
@@ -19,4 +12,8 @@ basic.forever(function () {
     DFRobotMaqueenPlus.mototRun(Motors.ALL, Dir.CW, abiadura)
     basic.pause(2000)
     DFRobotMaqueenPlus.mototStop(Motors.ALL)
+})
+DFRobotMaqueenPlus.I2CInit()
+basic.forever(function () {
+	
 })
